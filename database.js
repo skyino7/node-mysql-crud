@@ -7,6 +7,4 @@ const mysqlPool = mysql.createPool({
     database: 'classicmodels'
 })
 
-mysqlPool.query("SELECT 1")
-.then(data => console.log('Database Connection Successful'))
-.catch(err => console.log('Database Connection Failed. \n' + err))
+module.exports = mysqlPool
