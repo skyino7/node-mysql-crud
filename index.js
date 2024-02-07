@@ -1,8 +1,9 @@
-const express = require('express'),
-    app = express();
-const db = require('./database')
-
+const express = require('express'), app = express(), db = require('./database');
 PORT=3000
+
+empRoutes = require('./controller/empoloyee.controller')
+
+app.use('/api/employees', empRoutes)
 
 db.query("SELECT 1")
     .then(() => {
