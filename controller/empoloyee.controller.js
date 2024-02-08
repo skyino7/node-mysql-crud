@@ -3,10 +3,11 @@ const express = require('express'),
 
 const database = require('../database')
 
-router.get('/', (req, res) => {
-    database.query("SELECT * FROM employees")
-        .then(data => res.send(data))
+router.get('/', async (req, res) => {
+    const [rows]= await database.query("SELECT * FROM employees")
+        // .then(data => res.send(data[0][0]))
         .catch(err => console.log(err))
+    res.send(rows);
 })
 
 module.exports = router;
